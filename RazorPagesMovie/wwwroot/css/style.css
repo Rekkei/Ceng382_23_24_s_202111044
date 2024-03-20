@@ -1,0 +1,9 @@
+.element {
+    padding: 10px;
+    margin: 5px;
+    background-color: lightblue;
+}
+
+.hidden {
+    display: none;
+}

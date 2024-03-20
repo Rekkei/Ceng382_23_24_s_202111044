@@ -3,8 +3,29 @@
 @{
 }
 <main>
+  <div class="text-center">
+        <button id="showFormButton" class="btn btn-primary">Toggle Form</button>
+    </div>
     
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    
+    <form id="calculationForm" style="display: none;">
+        <div class="mb-3">
+            <label for="input1" class="form-label">Input 1:</label>
+            <input type="number" class="form-control" id="input1" placeholder="Enter value for input">
+        </div>
+        <div class="mb-3">
+            <label for="input2" class="form-label">Input 2:</label>
+            <input type="number" class="form-control" id="input2" placeholder="Enter value for input">
+        </div>
+        <button type="button" id="calculateButton" class="btn btn-primary">Calculate Sum</button>
+    </form>
+    
+   
+    <div id="result" style="display: none;" class="text-center mt-3"></div>
+     <div class="text-center">
+        <button id="toggleElementsButton" class="btn btn-primary">Toggle Elements</button>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center" id="toggleableElements">
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
@@ -113,4 +134,5 @@
         </tbody>
       </table>
     </div>
+    <script src="~/js/newPage.js" asp-append-version="true"></script>
   </main>
