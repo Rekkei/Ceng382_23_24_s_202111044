@@ -18,12 +18,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\RazorPagesMovie
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/RazorPagesMovie/Pages/AddRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUm9vbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/RazorPagesMovie/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/RazorPagesMovie/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/RazorPagesMovie/Pages/ListRooms.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdFJvb21zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/RazorPagesMovie/Pages/Privacy.cshtml]
