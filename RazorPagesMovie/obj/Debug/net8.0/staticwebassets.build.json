@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "84ev2opamyG1qRWoELbxE6cxMfUKl7H7o5lXYaXl4dw=",
+  "Hash": "NtIFOBzqHRcg0C6chCGEcUxvkSzKZzt65Z4MB2OCE8s=",
   "Source": "RazorPagesMovie",
   "BasePath": "_content/RazorPagesMovie",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\RazorPagesMovie\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\RazorPagesMovie.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\RazorPagesMovie\\wwwroot\\css\\mycss.css",
+      "SourceId": "RazorPagesMovie",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\RazorPagesMovie\\wwwroot\\",
+      "BasePath": "_content/RazorPagesMovie",
+      "RelativePath": "css/mycss.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\mycss.css"
     },
     {
       "Identity": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\RazorPagesMovie\\wwwroot\\css\\site.css",
