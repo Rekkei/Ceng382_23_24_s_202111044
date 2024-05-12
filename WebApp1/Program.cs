@@ -39,9 +39,17 @@ app.UseAuthorization();
 // Modify the routing to direct the root URL to the login page
 app.MapGet("/", context =>
 {
-    context.Response.Redirect("/Identity/Account/Login");
+    if (!context.User.Identity.IsAuthenticated)
+    {
+        context.Response.Redirect("/Identity/Account/Login");
+    }
+    else
+    {
+        context.Response.Redirect("/Index");
+    }
     return Task.CompletedTask;
 });
+
 
 // Configure routing for Razor Pages
 app.MapRazorPages();

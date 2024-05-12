@@ -2,10 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApp1.Data;
-using Microsoft.AspNetCore.Authorization; // Add this line
-
-
-
+using Microsoft.AspNetCore.Authorization; 
 namespace WebApp1.Pages;
 
 [Authorize]
