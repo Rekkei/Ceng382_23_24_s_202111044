@@ -4,7 +4,7 @@ using WebApp1.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
@@ -16,7 +16,7 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -24,7 +24,7 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+   
     app.UseHsts();
 }
 
@@ -33,10 +33,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication(); // Add this line to enable authentication
+app.UseAuthentication(); 
 app.UseAuthorization();
 
-// Modify the routing to direct the root URL to the login page
+
 app.MapGet("/", context =>
 {
     if (!context.User.Identity.IsAuthenticated)
@@ -51,7 +51,6 @@ app.MapGet("/", context =>
 });
 
 
-// Configure routing for Razor Pages
 app.MapRazorPages();
 
 app.Run();
