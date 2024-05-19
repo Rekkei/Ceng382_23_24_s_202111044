@@ -1,0 +1,23 @@
+@page
+@model WebApp1.Pages.AddReservationModel
+@{
+    ViewData["Title"] = "Add Reservation";
+}
+
+<h1>Add Reservation</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Reservation.RoomId"></label>
+        <select asp-for="Reservation.RoomId" class="form-control" asp-items="Model.Rooms"></select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Reservation.DateTime"></label>
+        <input asp-for="Reservation.DateTime" class="form-control" type="datetime-local" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create Reservation</button>
+</form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

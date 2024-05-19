@@ -4,7 +4,6 @@ using WebApp1.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
@@ -14,8 +13,13 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
 
-var app = builder.Build();
+builder.Services.AddLogging(logging =>
+{
+    logging.AddConsole();
+    logging.AddDebug();
+});
 
+var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
@@ -24,7 +28,6 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Error");
-   
     app.UseHsts();
 }
 
@@ -33,9 +36,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication(); 
+app.UseAuthentication();
 app.UseAuthorization();
-
 
 app.MapGet("/", context =>
 {
@@ -49,7 +51,6 @@ app.MapGet("/", context =>
     }
     return Task.CompletedTask;
 });
-
 
 app.MapRazorPages();
 

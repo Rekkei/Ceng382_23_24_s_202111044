@@ -1,0 +1,108 @@
+@page
+@model WebApp1.Pages.ListReservationsModel
+@{
+    ViewData["Title"] = "List Reservations";
+}
+
+<h1>List Reservations</h1>
+
+<form method="post" asp-page-handler="Filter">
+    <div class="form-group">
+        <label for="RoomNameFilter">Room Name:</label>
+        <input type="text" id="RoomNameFilter" asp-for="RoomNameFilter" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="StartDateFilter">Start Date:</label>
+        <input type="date" id="StartDateFilter" asp-for="StartDateFilter" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="EndDateFilter">End Date:</label>
+        <input type="date" id="EndDateFilter" asp-for="EndDateFilter" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="CapacityFilter">Room Capacity:</label>
+        <input type="number" id="CapacityFilter" asp-for="CapacityFilter" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
+<table class="table table-bordered mt-4">
+    <thead>
+        <tr>
+            <th>Time</th>
+            @for (var day = 0; day < 7; day++)
+            {
+                <th>@Model.StartDateFilter.AddDays(day).ToString("dddd")</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (var hour = 0; hour < 24; hour++)
+        {
+            <tr>
+                <td>@hour:00</td>
+                @for (var day = 0; day < 7; day++)
+                {
+                    var currentDate = Model.StartDateFilter.AddDays(day).Date.AddHours(hour);
+                    var reservation = Model.Reservations.FirstOrDefault(r => r.DateTime == currentDate);
+                    if (reservation != null)
+                    {
+                        <td>
+                            @reservation.Room.RoomName - @reservation.ReservedBy
+                            <button type="button" class="btn btn-sm btn-warning" onclick="openEditModal(@reservation.Id, '@reservation.DateTime.ToString("yyyy-MM-ddTHH:mm")', @reservation.RoomId)">Edit</button>
+                            <form method="post" asp-page-handler="Delete" asp-route-id="@reservation.Id" class="d-inline">
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" asp-page-handler="Edit">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Reservation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" asp-for="EditReservation.Id" id="editReservationId" />
+                    <div class="form-group">
+                        <label asp-for="EditReservation.DateTime"></label>
+                        <input asp-for="EditReservation.DateTime" class="form-control" type="datetime-local" id="editReservationDateTime" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EditReservation.RoomId"></label>
+                        <select asp-for="EditReservation.RoomId" class="form-control" asp-items="Model.Rooms" id="editReservationRoomId"></select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function openEditModal(id, dateTime, roomId) {
+            document.getElementById("editReservationId").value = id;
+            document.getElementById("editReservationDateTime").value = dateTime;
+            document.getElementById("editReservationRoomId").value = roomId;
+            $('#editModal').modal('show');
+        }
+    </script>
+}
