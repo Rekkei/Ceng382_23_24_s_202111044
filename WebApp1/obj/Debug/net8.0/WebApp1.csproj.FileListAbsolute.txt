@@ -261,3 +261,12 @@ D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\obj\Debug\net8.0
 D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\obj\Debug\net8.0\WebApp1.pdb
 D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\obj\Debug\net8.0\WebApp1.genruntimeconfig.cache
 D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\obj\Debug\net8.0\ref\WebApp1.dll
+D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\bin\Debug\net8.0\Serilog.dll
+D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\bin\Debug\net8.0\Serilog.AspNetCore.dll
+D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\bin\Debug\net8.0\Serilog.Extensions.Hosting.dll
+D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\bin\Debug\net8.0\Serilog.Extensions.Logging.dll
+D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\bin\Debug\net8.0\Serilog.Formatting.Compact.dll
+D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\bin\Debug\net8.0\Serilog.Settings.Configuration.dll
+D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\bin\Debug\net8.0\Serilog.Sinks.Console.dll
+D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\bin\Debug\net8.0\Serilog.Sinks.Debug.dll
+D:\Ders\3.sınıf\CENG382-Web\Ceng382_23_24_s_202111044\WebApp1\bin\Debug\net8.0\Serilog.Sinks.File.dll

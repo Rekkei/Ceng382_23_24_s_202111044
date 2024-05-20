@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApp1.Data;
 
@@ -11,9 +12,11 @@ using WebApp1.Data;
 namespace WebApp1.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240519171956_RecreateReservationTable")]
+    partial class RecreateReservationTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,7 +227,7 @@ namespace WebApp1.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("WebApp1.Models.Reservation", b =>
+            modelBuilder.Entity("Reservation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -236,9 +239,10 @@ namespace WebApp1.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ReservedBy")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RoomId")
+                    b.Property<int>("RoomId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -248,7 +252,7 @@ namespace WebApp1.Data.Migrations
                     b.ToTable("Reservations");
                 });
 
-            modelBuilder.Entity("WebApp1.Models.Room", b =>
+            modelBuilder.Entity("Room", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -318,11 +322,13 @@ namespace WebApp1.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("WebApp1.Models.Reservation", b =>
+            modelBuilder.Entity("Reservation", b =>
                 {
-                    b.HasOne("WebApp1.Models.Room", "Room")
+                    b.HasOne("Room", "Room")
                         .WithMany()
-                        .HasForeignKey("RoomId");
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Room");
                 });

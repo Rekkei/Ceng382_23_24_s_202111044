@@ -1,82 +1,55 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using WebApp1.Data;
+using WebApp1.Models;
 
 namespace WebApp1.Pages
 {
-    [Authorize]
-    public class AddReservationModel : PageModel
+    public class ReservationModel : PageModel
     {
-        private readonly ApplicationDbContext _dbContext;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly ILogger<AddReservationModel> _logger;
-
-        public AddReservationModel(ApplicationDbContext dbContext, UserManager<IdentityUser> userManager, ILogger<AddReservationModel> logger)
-        {
-            _dbContext = dbContext;
-            _userManager = userManager;
-            _logger = logger;
-        }
+        private readonly ApplicationDbContext _context;
 
         [BindProperty]
         public Reservation Reservation { get; set; }
 
-        public List<SelectListItem> Rooms { get; set; }
+        public SelectList Rooms { get; set; }
 
-        public async Task<IActionResult> OnGetAsync()
+        public ReservationModel(ApplicationDbContext context)
         {
-            await PopulateRoomsDropdown();
-            return Page();
+            _context = context;
+        }
+
+        public void OnGet()
+        {
+            Rooms = new SelectList(_context.Rooms, "Id", "RoomName");
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
-                await PopulateRoomsDropdown();
+                Rooms = new SelectList(_context.Rooms, "Id", "RoomName");
                 return Page();
             }
 
-            var user = await _userManager.GetUserAsync(User);
-            Reservation.ReservedBy = user.UserName;
+            Reservation.ReservedBy = User.Identity.Name;
 
-            _logger.LogInformation("User {UserName} is creating a reservation for RoomId {RoomId} at {DateTime}",
-                Reservation.ReservedBy, Reservation.RoomId, Reservation.DateTime);
+            Reservation.Room = await _context.Rooms.FindAsync(Reservation.Room.Id);
 
-            try
+            if (Reservation.Room == null)
             {
-                _dbContext.Reservations.Add(Reservation);
-                await _dbContext.SaveChangesAsync();
-                _logger.LogInformation("Reservation successfully created.");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error creating reservation.");
-                ModelState.AddModelError(string.Empty, "An error occurred while creating the reservation.");
-                await PopulateRoomsDropdown();
+                ModelState.AddModelError("Reservation.Room.Id", "Invalid room selection.");
+                Rooms = new SelectList(_context.Rooms, "Id", "RoomName");
                 return Page();
             }
 
-            return RedirectToPage("/Index");
-        }
+            _context.Reservations.Add(Reservation);
+            await _context.SaveChangesAsync();
 
-        private async Task PopulateRoomsDropdown()
-        {
-            var rooms = await _dbContext.Rooms.ToListAsync();
-            Rooms = rooms.Select(r => new SelectListItem
-            {
-                Value = r.Id.ToString(),
-                Text = r.RoomName
-            }).ToList();
+            return RedirectToPage("./Index");
         }
     }
 }

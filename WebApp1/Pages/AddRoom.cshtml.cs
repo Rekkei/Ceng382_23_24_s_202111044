@@ -4,7 +4,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApp1.Pages;
 using WebApp1.Data;
 using Microsoft.AspNetCore.Authorization; 
+using WebApp1.Models;
 
+
+namespace WebApp1.Pages{
 
 [Authorize]
 public class AddRoomModel : PageModel
@@ -38,4 +41,6 @@ public class AddRoomModel : PageModel
 
         return Page();
     }
+}
+
 }

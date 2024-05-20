@@ -1,23 +1,30 @@
 @page
-@model WebApp1.Pages.AddReservationModel
+@model ReservationModel
 @{
-    ViewData["Title"] = "Add Reservation";
+    ViewData["Title"] = "Create Reservation";
 }
+<br>
+<div class="container">
+        <div class="row justify-content-center">
+                    <div class="col-md-6"><br>
 
-<h1>Add Reservation</h1>
+            <img src="~/pexels-pixabay-289737.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
+                width="700" height="200" loading="lazy">
+                <h2 class="">Create Reservation</h2>
 
-<form method="post">
-    <div class="form-group">
-        <label asp-for="Reservation.RoomId"></label>
-        <select asp-for="Reservation.RoomId" class="form-control" asp-items="Model.Rooms"></select>
+<form method="post" class="mt-3">
+    <div class="mb-3">
+        <label asp-for="Reservation.Room.RoomName" class="form-label">Room Name</label>
+        <select asp-for="Reservation.Room.RoomName" class="form-select" asp-items="Model.Rooms">
+            <option value="">Select a room</option>
+        </select>
     </div>
-    <div class="form-group">
-        <label asp-for="Reservation.DateTime"></label>
-        <input asp-for="Reservation.DateTime" class="form-control" type="datetime-local" />
+    <div class="mb-3">
+        <label asp-for="Reservation.DateTime" class="form-label">Reservation Date</label>
+        <input asp-for="Reservation.DateTime" class="form-control" class="form-control" type="datetime-local" />
     </div>
-    <button type="submit" class="btn btn-primary">Create Reservation</button>
+    <button type="submit" class="btn btn-primary">Add Reservation</button>
 </form>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+</div>
+</div>
+</div>
