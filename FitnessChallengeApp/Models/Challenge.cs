@@ -1,4 +1,8 @@
-public class Challenge
+using FitnessChallengeApp.Models;
+using FitnessChallengeApp.Data;
+namespace FitnessChallengeApp.Models
+{
+    public class Challenge
 {
     public int Id { get; set; }
     public string Name { get; set; }
@@ -8,4 +12,5 @@ public class Challenge
     public string Instructions { get; set; }
     public ApplicationUser CreatedBy { get; set; }
     public DateTime CreatedAt { get; set; }
+}
 }

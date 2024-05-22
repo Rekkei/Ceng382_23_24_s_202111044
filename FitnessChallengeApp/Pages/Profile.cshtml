@@ -1,0 +1,33 @@
+﻿@page
+@model ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+ <h2>Profile</h2>
+
+<div>
+    <h4>@Model.UserProfile.UserName's Profile</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Email
+        </dt>
+        <dd class="col-sm-10">
+            @Model.UserProfile.Email
+        </dd>
+        <dt class="col-sm-2">
+            Profile Picture
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Model.UserProfile.ProfilePictureUrl" alt="Profile Picture" class="img-thumbnail" width="150" height="150" />
+        </dd>
+        <dt class="col-sm-2">
+            Bio
+        </dt>
+        <dd class="col-sm-10">
+            @Model.UserProfile.Bio
+        </dd>
+    </dl>
+    <a asp-page="/EditProfile">Edit Profile</a>
+</div> 
