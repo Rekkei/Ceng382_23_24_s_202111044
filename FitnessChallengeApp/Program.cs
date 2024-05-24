@@ -43,14 +43,9 @@ app.UseAuthorization();
 
 app.MapGet("/", context =>
 {
-    if (!context.User.Identity.IsAuthenticated)
-    {
-        context.Response.Redirect("/Identity/Account/Login");
-    }
-    else
-    {
+    
         context.Response.Redirect("/Index");
-    }
+    
     return Task.CompletedTask;
 });
 

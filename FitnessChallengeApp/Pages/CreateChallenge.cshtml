@@ -1,0 +1,36 @@
+﻿@page
+@model CreateChallengeModel
+@{
+    ViewData["Title"] = "Create Challenge";
+}
+
+<h2>Create Challenge</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Input.Name" class="control-label"></label>
+        <input asp-for="Input.Name" class="form-control" />
+        <span asp-validation-for="Input.Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Category" class="control-label"></label>
+        <input asp-for="Input.Category" class="form-control" />
+        <span asp-validation-for="Input.Category" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Period" class="control-label"></label>
+        <input asp-for="Input.Period" class="form-control" />
+        <span asp-validation-for="Input.Period" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Difficulty" class="control-label"></label>
+        <input asp-for="Input.Difficulty" class="form-control" />
+        <span asp-validation-for="Input.Difficulty" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Input.Instructions" class="control-label"></label>
+        <textarea asp-for="Input.Instructions" class="form-control"></textarea>
+        <span asp-validation-for="Input.Instructions" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

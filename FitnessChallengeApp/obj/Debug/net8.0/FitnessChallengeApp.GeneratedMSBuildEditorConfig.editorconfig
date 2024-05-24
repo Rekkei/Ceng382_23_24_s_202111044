@@ -54,6 +54,18 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/FitnessChallengeApp/Pages/ChallengeDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhbGxlbmdlRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/FitnessChallengeApp/Pages/Challenges.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hhbGxlbmdlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/FitnessChallengeApp/Pages/CreateChallenge.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlQ2hhbGxlbmdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/FitnessChallengeApp/Pages/EditProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFByb2ZpbGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

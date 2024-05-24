@@ -1,0 +1,37 @@
+﻿@page
+@model ChallengesModel
+@{
+    ViewData["Title"] = "Challenges";
+}
+
+<h2>Challenges</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Period</th>
+            <th>Difficulty</th>
+            <th>Created By</th>
+            <th>Created At</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var challenge in Model.Challenges)
+        {
+            <tr>
+                <td>@challenge.Name</td>
+                <td>@challenge.Category</td>
+                <td>@challenge.Period</td>
+                <td>@challenge.Difficulty</td>
+                <td>@challenge.CreatedBy.UserName</td>
+                <td>@challenge.CreatedAt.ToShortDateString()</td>
+                <td>
+                    <a asp-page="/ChallengeDetails" asp-route-id="@challenge.Id">View</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,51 @@
+﻿@page "{id:int}"
+@model ChallengeDetailsModel
+@{
+    ViewData["Title"] = "Challenge Details";
+}
+
+<h2>Challenge Details</h2>
+
+<div>
+    <h4>@Model.Challenge.Name</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Category
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Challenge.Category
+        </dd>
+        <dt class="col-sm-2">
+            Period
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Challenge.Period
+        </dd>
+        <dt class="col-sm-2">
+            Difficulty
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Challenge.Difficulty
+        </dd>
+        <dt class="col-sm-2">
+            Instructions
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Challenge.Instructions
+        </dd>
+        <dt class="col-sm-2">
+            Created By
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Challenge.CreatedBy.UserName
+        </dd>
+        <dt class="col-sm-2">
+            Created At
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Challenge.CreatedAt.ToShortDateString()
+        </dd>
+    </dl>
+    <a asp-page="/Challenges">Back to List</a>
+</div>
