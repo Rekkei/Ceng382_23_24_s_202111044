@@ -24,6 +24,8 @@ namespace FitnessChallengeApp
         public Challenge Challenge { get; set; }
         public IList<Comment> Comments { get; set; }
         public double AverageRating { get; set; }
+
+        public string SavedByUserName { get; set; }
         public async Task<IActionResult> OnGetAsync(int id)
         {
             Challenge = await _context.Challenges
@@ -103,7 +105,9 @@ namespace FitnessChallengeApp
             }
 
             var user = await _userManager.GetUserAsync(User);
+             
             user.SavedChallenges.Add(challenge);
+            SavedByUserName = user.UserName;
             await _userManager.UpdateAsync(user);
 
             return RedirectToPage(new { id });

@@ -9,6 +9,6 @@ public class ApplicationUser : IdentityUser
 {
     public byte[]? ProfilePictureUrl { get; set; }
     public string? Bio { get; set; }
-    public ICollection<Challenge> SavedChallenges { get; set; }
+    public ICollection<Challenge> SavedChallenges { get; set; } = new List<Challenge>();
 }
 }

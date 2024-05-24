@@ -13,12 +13,18 @@
         <img src="data:image;base64,@(Model.ProfilePictureBase64)" alt="Profile Picture" style="max-width: 200px;" />
         <p>Email: @Model.UserProfile.Email</p>
         <p>Bio: @Model.UserProfile.Bio</p>
-        @* <ul>
-            @foreach (var challenge in Model.UserProfile.SavedChallenges)
+       
+        <h4>Saved Challenges</h4>
+        <ul>
+            @foreach (var challenge in Model.SavedChallenges)
             {
-                <li>@challenge.Name</li>
+                <li>@challenge.Name - @challenge.Category</li>
+                <form method="get" asp-page="/ChallengeDetails">
+                        <a asp-page="/ChallengeDetails" asp-route-id="@challenge.Id">View</a>
+                        
+                    </form>
             }
-        </ul> *@
+        </ul>
         <a asp-page="/EditProfile">Edit Profile</a>
     </div>
 }

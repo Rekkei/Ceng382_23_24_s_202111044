@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FitnessChallengeApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0396c67cbb6d89e312091b85eb443025ea517c40")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3908896f3bb93997d999701620138b4c90c61c64")]
 [assembly: System.Reflection.AssemblyProductAttribute("FitnessChallengeApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FitnessChallengeApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
