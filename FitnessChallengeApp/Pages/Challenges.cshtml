@@ -13,19 +13,37 @@
     </div>
     <div class="form-group">
         <label for="Category">Category</label>
-        <input type="text" name="Category" class="form-control" value="@Model.SelectedCategory" placeholder="Filter by category..." />
+        <select name="Category" class="form-control">
+            <option value="">Select a category</option>
+            @foreach (var category in Model.Categories)
+            {
+                <option value="@category" selected="@Model.SelectedCategory == category">@category</option>
+            }
+        </select>
     </div>
     <div class="form-group">
         <label for="Difficulty">Difficulty</label>
-        <input type="text" name="Difficulty" class="form-control" value="@Model.SelectedDifficulty" placeholder="Filter by difficulty..." />
+        <select name="Difficulty" class="form-control">
+            <option value="">Select a difficulty</option>
+            @foreach (var difficulty in Model.Difficulties)
+            {
+                <option value="@difficulty" selected="@Model.SelectedDifficulty == difficulty">@difficulty</option>
+            }
+        </select>
     </div>
     <div class="form-group">
         <label for="Period">Time Period</label>
-        <input type="text" name="Period" class="form-control" value="@Model.Period" placeholder="Filter by period..." />
+        <select name="Period" class="form-control">
+            <option value="">Select a period</option>
+            <option value="1 Week" selected="@Model.Period == 1 Weeks">1 Week</option>
+            <option value="2 Weeks" selected="@Model.Period == 2 Weeks">2 Week</option>
+            <option value="1 Month" selected="@Model.Period == 1 Months">1 Month</option>
+            <option value="3 Months" selected="@Model.Period == 3 Months">1 Month</option>
+            <option value="6 Months" selected="@Model.Period == 6 Months">6 Month</option>
+        </select>
     </div>
     <button type="submit" class="btn btn-primary">Search</button>
 </form>
-
 
 <table class="table">
     <thead>
@@ -47,7 +65,7 @@
                 <td>@challenge.Category</td>
                 <td>@challenge.Period</td>
                 <td>@challenge.Difficulty</td>
-                <td>@challenge.CreatedBy.UserName</td>
+                <td>@challenge.CreatedBy?.UserName</td>
                 <td>@challenge.CreatedAt.ToShortDateString()</td>
                 <td>
                     <a asp-page="/ChallengeDetails" asp-route-id="@challenge.Id">View</a>

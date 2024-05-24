@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System;
 using System.Threading.Tasks;
 using FitnessChallengeApp.Models;
-using System;
 
 namespace FitnessChallengeApp.Pages
 {

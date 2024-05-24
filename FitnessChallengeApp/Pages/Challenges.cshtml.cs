@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -5,7 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using FitnessChallengeApp.Models;
 using FitnessChallengeApp.Data;
-using Microsoft.AspNetCore.Mvc;
 
 namespace FitnessChallengeApp
 {
@@ -55,7 +55,7 @@ namespace FitnessChallengeApp
 
             if (!string.IsNullOrWhiteSpace(Period))
             {
-                query = query.Where(c => c.Period.Contains(Period));
+                query = query.Where(c => c.Period == Period);
             }
 
             Challenges = await query.ToListAsync();

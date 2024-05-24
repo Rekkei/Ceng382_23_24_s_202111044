@@ -1,4 +1,3 @@
-// Pages/CreateChallenge.cshtml.cs
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
@@ -26,14 +25,14 @@ public class CreateChallengeModel : PageModel
 
     public async Task<IActionResult> OnPostAsync()
     {
-        if (ModelState.IsValid)
+        if (!ModelState.IsValid)
         {
             var user = await _userManager.GetUserAsync(User);
             Input.CreatedBy = user;
             Input.CreatedAt = DateTime.Now;
             _context.Challenges.Add(Input);
             await _context.SaveChangesAsync();
-            return RedirectToPage("Index");
+            return RedirectToPage("Challenges");
         }
         return Page();
     }

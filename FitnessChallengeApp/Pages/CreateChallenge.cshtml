@@ -14,17 +14,36 @@
     </div>
     <div class="form-group">
         <label asp-for="Input.Category" class="control-label"></label>
-        <input asp-for="Input.Category" class="form-control" />
+        <select asp-for="Input.Category" class="form-control">
+            <option value="">Select a category</option>
+            <option value="Running">Running</option>
+            <option value="Cycling">Cycling</option>
+            <option value="Swimming">Swimming</option>
+            <option value="Yoga">Yoga</option>
+            <option value="Strength Training">Strength Training</option>
+        </select>
         <span asp-validation-for="Input.Category" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Input.Period" class="control-label"></label>
-        <input asp-for="Input.Period" class="form-control" />
+        <select asp-for="Input.Period" class="form-control">
+            <option value="">Select a period</option>
+            <option value="1 Week">1 Week</option>
+            <option value="2 Weeks">2 Weeks</option>
+            <option value="1 Month">1 Month</option>
+            <option value="3 Months">3 Months</option>
+            <option value="6 Months">6 Months</option>
+        </select>
         <span asp-validation-for="Input.Period" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Input.Difficulty" class="control-label"></label>
-        <input asp-for="Input.Difficulty" class="form-control" />
+        <select asp-for="Input.Difficulty" class="form-control">
+            <option value="">Select a difficulty</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Intermediate">Intermediate</option>
+            <option value="Advanced">Advanced</option>
+        </select>
         <span asp-validation-for="Input.Difficulty" class="text-danger"></span>
     </div>
     <div class="form-group">

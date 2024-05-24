@@ -4,16 +4,19 @@ using FitnessChallengeApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace FitnessChallengeApp.Data.Migrations
+namespace FitnessChallengeApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240524203029_Update1")]
+    partial class Update1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -161,7 +164,7 @@ namespace FitnessChallengeApp.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Comment");
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("FitnessChallengeApp.Models.Rating", b =>
@@ -187,7 +190,7 @@ namespace FitnessChallengeApp.Data.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Rating");
+                    b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -330,7 +333,7 @@ namespace FitnessChallengeApp.Data.Migrations
             modelBuilder.Entity("FitnessChallengeApp.Models.Challenge", b =>
                 {
                     b.HasOne("FitnessChallengeApp.Models.ApplicationUser", "CreatedBy")
-                        .WithMany()
+                        .WithMany("SavedChallenges")
                         .HasForeignKey("CreatedById");
 
                     b.Navigation("CreatedBy");
@@ -419,6 +422,11 @@ namespace FitnessChallengeApp.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("FitnessChallengeApp.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("SavedChallenges");
                 });
 
             modelBuilder.Entity("FitnessChallengeApp.Models.Challenge", b =>
