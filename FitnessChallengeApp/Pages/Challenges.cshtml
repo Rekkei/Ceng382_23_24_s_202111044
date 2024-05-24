@@ -6,6 +6,27 @@
 
 <h2>Challenges</h2>
 
+<form method="get">
+    <div class="form-group">
+        <label for="SearchTerm">Search</label>
+        <input type="text" name="SearchTerm" class="form-control" value="@Model.SearchTerm" placeholder="Search by keywords..." />
+    </div>
+    <div class="form-group">
+        <label for="Category">Category</label>
+        <input type="text" name="Category" class="form-control" value="@Model.SelectedCategory" placeholder="Filter by category..." />
+    </div>
+    <div class="form-group">
+        <label for="Difficulty">Difficulty</label>
+        <input type="text" name="Difficulty" class="form-control" value="@Model.SelectedDifficulty" placeholder="Filter by difficulty..." />
+    </div>
+    <div class="form-group">
+        <label for="Period">Time Period</label>
+        <input type="text" name="Period" class="form-control" value="@Model.Period" placeholder="Filter by period..." />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+
 <table class="table">
     <thead>
         <tr>

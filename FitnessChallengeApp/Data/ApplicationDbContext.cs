@@ -12,5 +12,7 @@ namespace FitnessChallengeApp.Data
         }
 
         public DbSet<Challenge> Challenges { get; set; }
+        public DbSet<Comment> Comment { get; set; }
+        public DbSet<Rating> Rating { get; set; }
     }
 }
