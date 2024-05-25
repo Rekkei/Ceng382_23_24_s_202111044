@@ -69,16 +69,24 @@ namespace FitnessChallengeApp.Pages
 
             user.Bio = UserProfile.Bio;
 
-            if (!string.IsNullOrEmpty(NewPassword) && NewPassword == ConfirmPassword)
+            if (!string.IsNullOrEmpty(NewPassword))
             {
-                var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
-                var passwordChangeResult = await _userManager.ResetPasswordAsync(user, resetToken, NewPassword);
-                if (!passwordChangeResult.Succeeded)
+                if (NewPassword == ConfirmPassword)
                 {
-                    foreach (var error in passwordChangeResult.Errors)
+                    var resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+                    var passwordChangeResult = await _userManager.ResetPasswordAsync(user, resetToken, NewPassword);
+                    if (!passwordChangeResult.Succeeded)
                     {
-                        ModelState.AddModelError(string.Empty, error.Description);
+                        foreach (var error in passwordChangeResult.Errors)
+                        {
+                            ModelState.AddModelError(string.Empty, error.Description);
+                        }
+                        return Page();
                     }
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Passwords do not match.");
                     return Page();
                 }
             }

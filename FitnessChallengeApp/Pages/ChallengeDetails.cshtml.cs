@@ -99,17 +99,17 @@ namespace FitnessChallengeApp
         public async Task<IActionResult> OnPostSaveChallengeAsync(int id)
         {
             var challenge = await _context.Challenges.FindAsync(id);
+            
             if (challenge == null)
             {
                 return NotFound();
             }
 
             var user = await _userManager.GetUserAsync(User);
-             
             user.SavedChallenges.Add(challenge);
             SavedByUserName = user.UserName;
             await _userManager.UpdateAsync(user);
-
+            
             return RedirectToPage(new { id });
         }
     }
