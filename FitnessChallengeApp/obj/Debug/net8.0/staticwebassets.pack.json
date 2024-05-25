@@ -13,6 +13,34 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\FitnessChallengeApp\\wwwroot\\images\\abs.jpg",
+      "PackagePath": "staticwebassets\\images\\abs.jpg"
+    },
+    {
+      "Id": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\FitnessChallengeApp\\wwwroot\\images\\fitness1.jpg",
+      "PackagePath": "staticwebassets\\images\\fitness1.jpg"
+    },
+    {
+      "Id": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\FitnessChallengeApp\\wwwroot\\images\\fitness2.jpg",
+      "PackagePath": "staticwebassets\\images\\fitness2.jpg"
+    },
+    {
+      "Id": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\FitnessChallengeApp\\wwwroot\\images\\logo.jpg",
+      "PackagePath": "staticwebassets\\images\\logo.jpg"
+    },
+    {
+      "Id": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\FitnessChallengeApp\\wwwroot\\images\\logo2.jpg",
+      "PackagePath": "staticwebassets\\images\\logo2.jpg"
+    },
+    {
+      "Id": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\FitnessChallengeApp\\wwwroot\\images\\runing.jpg",
+      "PackagePath": "staticwebassets\\images\\runing.jpg"
+    },
+    {
+      "Id": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\FitnessChallengeApp\\wwwroot\\images\\yoga.jpg",
+      "PackagePath": "staticwebassets\\images\\yoga.jpg"
+    },
+    {
       "Id": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\FitnessChallengeApp\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

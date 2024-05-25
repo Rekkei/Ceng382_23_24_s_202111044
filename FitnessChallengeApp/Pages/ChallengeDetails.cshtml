@@ -4,50 +4,47 @@
     ViewData["Title"] = "Challenge Details";
 }
 
-<h2>Challenge Details - @Model.Challenge.Name (Rate: @Model.AverageRating)</h2>
-
-<div>
-    <h4>@Model.Challenge.Name</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">Category</dt>
-        <dd class="col-sm-10">@Model.Challenge.Category</dd>
-        <dt class="col-sm-2">Period</dt>
-        <dd class="col-sm-10">@Model.Challenge.Period</dd>
-        <dt class="col-sm-2">Difficulty</dt>
-        <dd class="col-sm-10">@Model.Challenge.Difficulty</dd>
-        <dt class="col-sm-2">Instructions</dt>
-        <dd class="col-sm-10">@Model.Challenge.Instructions</dd>
-        <dt class="col-sm-2">Created By</dt>
-        <dd class="col-sm-10">@Model.Challenge.CreatedBy.UserName</dd>
-        <dt class="col-sm-2">Created At</dt>
-        <dd class="col-sm-10">@Model.Challenge.CreatedAt.ToShortDateString()</dd>
+<h2 class="text-center">@Model.Challenge.Name</h2>
+<div class="card p-4 shadow-sm content-container">
+    <img src="your-challenge-image-link-here" class="card-img-top" alt="Challenge Image">
+    <dl class="row mt-3">
+        <dt class="col-sm-3">Category</dt>
+        <dd class="col-sm-9">@Model.Challenge.Category</dd>
+        <dt class="col-sm-3">Period</dt>
+        <dd class="col-sm-9">@Model.Challenge.Period</dd>
+        <dt class="col-sm-3">Difficulty</dt>
+        <dd class="col-sm-9">@Model.Challenge.Difficulty</dd>
+        <dt class="col-sm-3">Instructions</dt>
+        <dd class="col-sm-9">@Model.Challenge.Instructions</dd>
+        <dt class="col-sm-3">Created At</dt>
+        <dd class="col-sm-9">@Model.Challenge.CreatedAt.ToShortDateString()</dd>
+        <dt class="col-sm-3">Rate</dt>
+        <dd class="col-sm-9">@Model.AverageRating</dd>
     </dl>
 
     <h3>Comments</h3>
-    <ul>
+    <form method="post" asp-page-handler="AddComment" class="mb-3">
+        <textarea name="text" class="form-control" rows="3" placeholder="Add a comment"></textarea>
+        <button type="submit" class="btn btn-primary mt-2">Add Comment</button>
+    </form>
+    <ul class="list-unstyled">
         @foreach (var comment in Model.Comments)
         {
-            <li>
+            <li class="mb-2">
                 <strong>@comment.User.UserName</strong> (@comment.CreatedAt.ToShortDateString()): @comment.Text
             </li>
         }
     </ul>
 
-    <form method="post" asp-page-handler="AddComment">
-        <textarea name="text" rows="4" cols="50"></textarea><br />
-        <input type="submit" value="Add Comment" />
-    </form>
-
-    <h3>Rate Challenge</h3>
-    <form method="post" asp-page-handler="RateChallenge">
+     <h3>Rate Challenge</h3>
+    <form method="post" asp-page-handler="RateChallenge" class="mb-3">
         <input type="number" name="value" min="1" max="5" /><br />
         <input type="submit" value="Rate" />
     </form>
 
-    <form method="post" asp-page-handler="SaveChallenge">
+    <form method="post" asp-page-handler="SaveChallenge" class="mb-3">
         <input type="submit" value="Save Challenge" />
     </form>
-
-    <a asp-page="/Challenges">Back to List</a>
+    
+    <a asp-page="/Challenges" class="btn btn-secondary mt-3">Back to list</a>
 </div>

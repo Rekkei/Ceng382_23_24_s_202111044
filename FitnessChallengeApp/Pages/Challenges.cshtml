@@ -38,7 +38,7 @@
             <option value="1 Week" selected="@Model.Period == 1 Weeks">1 Week</option>
             <option value="2 Weeks" selected="@Model.Period == 2 Weeks">2 Week</option>
             <option value="1 Month" selected="@Model.Period == 1 Months">1 Month</option>
-            <option value="3 Months" selected="@Model.Period == 3 Months">1 Month</option>
+            <option value="3 Months" selected="@Model.Period == 3 Months">3 Month</option>
             <option value="6 Months" selected="@Model.Period == 6 Months">6 Month</option>
         </select>
     </div>
@@ -52,7 +52,7 @@
             <th>Category</th>
             <th>Period</th>
             <th>Difficulty</th>
-            <th>Created By</th>
+            @* <th>Created By</th> *@
             <th>Created At</th>
             <th></th>
         </tr>
@@ -65,7 +65,7 @@
                 <td>@challenge.Category</td>
                 <td>@challenge.Period</td>
                 <td>@challenge.Difficulty</td>
-                <td>@challenge.CreatedBy?.UserName</td>
+                @* <td>@challenge.CreatedBy?.UserName</td> *@
                 <td>@challenge.CreatedAt.ToShortDateString()</td>
                 <td>
                     <a asp-page="/ChallengeDetails" asp-route-id="@challenge.Id">View</a>
