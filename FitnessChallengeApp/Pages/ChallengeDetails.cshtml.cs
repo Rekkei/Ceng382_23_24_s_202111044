@@ -23,7 +23,7 @@ namespace FitnessChallengeApp
 
         public Challenge Challenge { get; set; }
         public IList<Comment> Comments { get; set; }
-        public double AverageRating { get; set; }
+        public int  AverageRating { get; set; }
 
         public string SavedByUserName { get; set; }
         public async Task<IActionResult> OnGetAsync(int id)
@@ -45,12 +45,10 @@ namespace FitnessChallengeApp
                 .Select(r => r.Value)
                 .ToListAsync();
 
-    AverageRating = ratings.Any() ? ratings.Average() : 0;
-    
+            AverageRating = ratings.Any() ? (int)ratings.Average() : 0; // Convert average to integer
 
             return Page();
         }
-
         public async Task<IActionResult> OnPostAddCommentAsync(int id, string text)
         {
             var challenge = await _context.Challenges.FindAsync(id);
