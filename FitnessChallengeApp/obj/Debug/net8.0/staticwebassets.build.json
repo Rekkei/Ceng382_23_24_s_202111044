@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Zr+0zNVQ+qPCHBAVEkRbpMALdqwJ5zR48PjhB7nzoSo=",
+  "Hash": "q1pydKISseHHVdyQ36ji74MLBKInDmvhK2YpSRiqNos=",
   "Source": "FitnessChallengeApp",
   "BasePath": "_content/FitnessChallengeApp",
   "Mode": "Default",
@@ -1345,6 +1345,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\runing.jpg"
+    },
+    {
+      "Identity": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\FitnessChallengeApp\\wwwroot\\images\\user.png",
+      "SourceId": "FitnessChallengeApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\FitnessChallengeApp\\wwwroot\\",
+      "BasePath": "_content/FitnessChallengeApp",
+      "RelativePath": "images/user.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\user.png"
     },
     {
       "Identity": "D:\\Ders\\3.sınıf\\CENG382-Web\\Ceng382_23_24_s_202111044\\FitnessChallengeApp\\wwwroot\\images\\yoga.jpg",

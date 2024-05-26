@@ -8,6 +8,8 @@
 @using FitnessChallengeApp.Models
 @using FitnessChallengeApp.Pages
 @inject SignInManager<ApplicationUser> SignInManager
+
+
 <div class="container text-center">
     <div class="row">
         <div class="col-md-6">
@@ -37,7 +39,7 @@
         <div class="col-md-4">
             <h3>Join Challenges</h3>
             <p>Challenge yourself and compete with others to achieve your fitness goals.</p>
-            @if (SignInManager.IsSignedIn(User))
+             @if (SignInManager.IsSignedIn(User))
             {
                 <a href="/Challenges" class="btn btn-outline-secondary">Explore Challenges</a>
             }
@@ -71,7 +73,14 @@
                         <div class="card-body">
                             <h5 class="card-title">30-Day Ab Challenge</h5>
                             <p class="card-text">Get those abs you've always wanted with this intense 30-day challenge.</p>
-                            <a href="/ChallengeDetails" class="btn btn-primary">Learn More</a>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <a href="/ChallengeDetails/7" class="btn btn-primary">Learn More</a>
+                            }
+                            else
+                            {
+                                <a href="/Identity/Account/Login" class="btn btn-primary">Login to Learn More</a>
+                            }
                         </div>
                     </div>
                 </div>
@@ -81,7 +90,14 @@
                         <div class="card-body">
                             <h5 class="card-title">Couch to 5K</h5>
                             <p class="card-text">Start your running journey with this beginner-friendly Couch to 5K challenge.</p>
-                            <a href="/ChallengeDetails" class="btn btn-primary">Learn More</a>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <a href="/ChallengeDetails/8" class="btn btn-primary">Learn More</a>
+                            }
+                            else
+                            {
+                                <a href="/Identity/Account/Login" class="btn btn-primary">Login to Learn More</a>
+                            }
                         </div>
                     </div>
                 </div>
@@ -91,7 +107,14 @@
                         <div class="card-body">
                             <h5 class="card-title">Yoga for Beginners</h5>
                             <p class="card-text">Discover the benefits of yoga and improve your flexibility and strength.</p>
-                            <a href="/ChallengeDetails" class="btn btn-primary">Learn More</a>
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <a href="/ChallengeDetails/9" class="btn btn-primary">Learn More</a>
+                            }
+                            else
+                            {
+                                <a href="/Identity/Account/Login" class="btn btn-primary">Login to Learn More</a>
+                            }
                         </div>
                     </div>
                 </div>
