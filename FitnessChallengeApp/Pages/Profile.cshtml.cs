@@ -47,7 +47,7 @@ namespace FitnessChallengeApp.Pages
     var user = await _userManager.GetUserAsync(User);
     if (user.SavedChallenges == null)
     {
-        user.SavedChallenges = new List<Challenge>(); // Initialize the collection if null
+        user.SavedChallenges = new List<Challenge>(); 
     }
     user.SavedChallenges.Add(challenge);
     await _userManager.UpdateAsync(user);

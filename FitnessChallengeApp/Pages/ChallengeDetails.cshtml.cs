@@ -45,7 +45,7 @@ namespace FitnessChallengeApp
                 .Select(r => r.Value)
                 .ToListAsync();
 
-            AverageRating = ratings.Any() ? (int)ratings.Average() : 0; // Convert average to integer
+            AverageRating = ratings.Any() ? (int)ratings.Average() : 0; 
 
             return Page();
         }
