@@ -1,0 +1,98 @@
+@page
+@model WebApp1.Pages.ReservationListModel
+@{
+    ViewData["Title"] = "Reservation List";
+}
+@using WebApp1.Models
+<style>
+ .form-group {
+  margin: 0;
+  
+}
+
+
+</style>
+<h2>Reservation List</h2>
+
+<form method="get">
+    <div class="form-group">
+        <label for="RoomFilter">Room:</label>
+        <input type="text" id="RoomFilter" name="RoomFilter" value="@Model.RoomFilter" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="DateFilterStart">Start Date:</label>
+        <input type="date" id="DateFilterStart" name="DateFilterStart" value="@Model.DateFilterStart?.ToString("yyyy-MM-dd")" class="form-control" />
+        <label> </label>
+    </div>
+    <div class="form-group">
+        <label for="CapacityFilter">Capacity:</label>
+        <input type="number" id="CapacityFilter" name="CapacityFilter" value="@Model.CapacityFilter" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+
+<h3>Weekly Schedule</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Time</th>
+            @for (int i = 0; i < 7; i++)
+            {
+                <th>@DateTime.Today.StartOfWeek(DayOfWeek.Monday).AddDays(i).ToString("dddd, MMM dd")</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for (int hour = 0; hour < 24; hour++)
+        {
+            <tr>
+                <td>@hour:00 - @(hour + 1):00</td>
+                @for (int i = 0; i < 7; i++)
+                {
+                    var currentDay = DateTime.Today.StartOfWeek(DayOfWeek.Monday).AddDays(i).Date;
+                    var reservations = Model.WeeklyReservations.ContainsKey(currentDay.ToString("dddd, MMM dd")) ?
+                        Model.WeeklyReservations[currentDay.ToString("dddd, MMM dd")] : new List<Reservation>();
+
+                    var reservation = reservations.FirstOrDefault(r => r.DateTime.Hour == hour);
+                    <td>
+                        @if (reservation != null)
+                        {
+                            <div>
+                                <span>@reservation.Room.RoomName</span><br />
+                                <span>@reservation.DateTime.ToString("HH:mm")</span><br />
+                                <form method="post" asp-page-handler="Delete" asp-route-id="@reservation.Id" class="form-group">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+
+                            </div>
+                        }
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.delete-button').on('click', function () {
+                var reservationId = $(this).data('id');
+                if (confirm('Are you sure you want to delete this reservation?')) {
+                    $.ajax({
+                        url: '@Url.Page("ReservationList", "Delete", new { id = "__id__" })'.replace("__id__", reservationId),
+                        type: 'POST',
+                        success: function (result) {
+                            location.reload();
+                        },
+                        error: function (err) {
+                            console.log(err);
+                            alert('Error deleting reservation.');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

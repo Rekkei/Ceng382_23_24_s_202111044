@@ -1,0 +1,20 @@
+@page
+@model WebApp1.Pages.CreateReservationModel
+@{
+    ViewData["Title"] = "Create Reservation";
+}
+<h2>Create Reservation</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Reservation.RoomId">Room:</label>
+        <select asp-for="Reservation.RoomId" class="form-control" asp-items="Model.Rooms">
+            <option value="">Select a room</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label asp-for="Reservation.DateTime">Reservation Date:</label>
+        <input asp-for="Reservation.DateTime" class="form-control" type="datetime-local" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create Reservation</button>
+</form>

@@ -31,19 +31,13 @@
                                 <li class="nav-item"><a class="nav-link" asp-page="/Index">Home</a></li>
                                 <li class="nav-item"><a class="nav-link" asp-page="/AddRoom">Add Room</a></li>
                                 <li class="nav-item"><a class="nav-link" asp-page="/ListRooms">List Rooms</a></li>
-                                <li class="nav-item"><a class="nav-link" asp-page="/AddReservation">Add Reservation</a></li>
-                                <li class="nav-item"><a class="nav-link" asp-page="/ListReservation">List Reservation</a></li>
-                                <partial name="_LoginPartial" />
+                                <li class="nav-item"><a class="nav-link" asp-page="/CreateReservation">Create Reservation</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-page="/ReservationList">Reservation List</a></li>
+                                
                             }
-                            else
-                            {
-                                <partial name="_LoginPartial" />
-                            }
-                            
+                        
                         </ul>
-                        
-                        
-                      
+                 <partial name="_LoginPartial" />
                 </nav> 
                 
             </div>

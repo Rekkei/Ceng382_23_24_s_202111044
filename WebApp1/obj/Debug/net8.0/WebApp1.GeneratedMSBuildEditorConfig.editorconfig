@@ -54,12 +54,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/WebApp1/Pages/AddReservation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUmVzZXJ2YXRpb24uY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/WebApp1/Pages/AddRoom.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUm9vbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/WebApp1/Pages/CreateReservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlUmVzZXJ2YXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/WebApp1/Pages/EditReservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFJlc2VydmF0aW9uLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/WebApp1/Pages/Error.cshtml]
@@ -70,16 +74,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/WebApp1/Pages/ListReservation.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdFJlc2VydmF0aW9uLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/WebApp1/Pages/ListRooms.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlzdFJvb21zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/WebApp1/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/WebApp1/Pages/ReservationList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzZXJ2YXRpb25MaXN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Ders/3.sınıf/CENG382-Web/Ceng382_23_24_s_202111044/WebApp1/Pages/Shared/_LoginPartial.cshtml]

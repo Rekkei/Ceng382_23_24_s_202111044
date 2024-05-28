@@ -39,7 +39,7 @@ public class AddRoomModel : PageModel
 
         Room = new Room();
 
-        return Page();
+        return RedirectToPage("ListRooms");
     }
 }
 
