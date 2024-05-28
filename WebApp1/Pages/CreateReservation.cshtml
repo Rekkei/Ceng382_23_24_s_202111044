@@ -1,20 +1,24 @@
 @page
-@model WebApp1.Pages.CreateReservationModel
-@{
-    ViewData["Title"] = "Create Reservation";
-}
-<h2>Create Reservation</h2>
+@model CreateReservationModel
 
-<form method="post">
+@using (Html.BeginForm("OnPost", "CreateReservation"))
+{
     <div class="form-group">
         <label asp-for="Reservation.RoomId">Room:</label>
-        <select asp-for="Reservation.RoomId" class="form-control" asp-items="Model.Rooms">
+        <select asp-for="Reservation.RoomId" class="form-control" asp-items="Model.Rooms" required>
             <option value="">Select a room</option>
         </select>
+        <span asp-validation-for="Reservation.RoomId" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Reservation.DateTime">Reservation Date:</label>
-        <input asp-for="Reservation.DateTime" class="form-control" type="datetime-local" />
+        <input asp-for="Reservation.DateTime" class="form-control" type="datetime-local" required/>
+        <span asp-validation-for="Reservation.DateTime" class="text-danger"></span>
     </div>
     <button type="submit" class="btn btn-primary">Create Reservation</button>
-</form>
+}
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
+}

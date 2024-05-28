@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -33,21 +33,26 @@ namespace WebApp1.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
+        
+           
+            if (_dbContext.Reservations.Any(r =>
+                r.DateTime <= Reservation.DateTime &&
+                r.DateTime.AddMinutes(30) >= Reservation.DateTime))
+            {
+                ModelState.AddModelError("Reservation.DateTime", "Another reservation already exists for the selected room in the same time interval.");
+            }
+
             if (!ModelState.IsValid)
             {
                 Rooms = new SelectList(_dbContext.Rooms, "Id", "RoomName");
-                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-                 Reservation.ReservedBy = userId;
-                _dbContext.Reservations.Add(Reservation);
-                await _dbContext.SaveChangesAsync();
+                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            Reservation.ReservedBy = userId;
+            _dbContext.Reservations.Add(Reservation);
+            await _dbContext.SaveChangesAsync();
                 return RedirectToPage("ReservationList");
             }
 
-            
-
-            // Log the creation
-            /* _dbContext.Logs.Add(new Log { Message = $"Reservation created by {userId} for room {Reservation.RoomId} at {Reservation.DateTime}" });
-            await _dbContext.SaveChangesAsync(); */
+           
 
             return RedirectToPage("ReservationList");
         }
