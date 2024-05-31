@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using WebApp1.Data;
 using WebApp1.Models;
@@ -13,10 +15,12 @@ namespace WebApp1.Pages
     public class ReservationListModel : PageModel
     {
         private readonly ApplicationDbContext _dbContext;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public ReservationListModel(ApplicationDbContext dbContext)
+        public ReservationListModel(ApplicationDbContext dbContext, UserManager<IdentityUser> userManager)
         {
             _dbContext = dbContext;
+            _userManager = userManager;
         }
 
         public Dictionary<string, List<Reservation>> WeeklyReservations { get; set; }
@@ -75,16 +79,31 @@ namespace WebApp1.Pages
             }
         }
 
-        public async Task<IActionResult> OnPostDelete(int id)
+        public async Task<IActionResult> OnPostDeleteAsync(int id)
         {
-            var reservation =  _dbContext.Reservations.Find(id);
+            var reservation = await _dbContext.Reservations.Include(r => r.Room).FirstOrDefaultAsync(r => r.Id == id);
             if (reservation == null)
             {
                 return NotFound();
             }
 
+            // Retrieve user ID
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            // Create a log entry before deleting the reservation
+            var logMessage = reservation.Room != null
+                ? $"Reservation for room '{reservation.Room.RoomName}' by user '{reservation.ReservedBy}' was deleted by user ID '{userId}'"
+                : $"Reservation by user '{reservation.ReservedBy}' was deleted by user ID '{userId}'";
+            
+            var log = new Log
+            {
+                Message = logMessage,
+                Timestamp = DateTime.UtcNow
+            };
+            _dbContext.Logs.Add(log);
+
             _dbContext.Reservations.Remove(reservation);
-             _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
 
             return RedirectToPage();
         }

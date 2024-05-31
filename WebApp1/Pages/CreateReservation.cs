@@ -49,9 +49,17 @@ namespace WebApp1.Pages
             Reservation.ReservedBy = userId;
             _dbContext.Reservations.Add(Reservation);
             await _dbContext.SaveChangesAsync();
+            var room = await _dbContext.Rooms.FindAsync(Reservation.RoomId);
+            var log = new Log
+            {
+                Message = $"Room '{room.RoomName}' was reserved by user '{userId}'",
+                Timestamp = DateTime.UtcNow
+            };
+            _dbContext.Logs.Add(log);
+            await _dbContext.SaveChangesAsync();
                 return RedirectToPage("ReservationList");
             }
-
+            
            
 
             return RedirectToPage("ReservationList");

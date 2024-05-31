@@ -6,10 +6,9 @@
 @using WebApp1.Models
 <style>
 .delete-icon {
-        color: #dc3545; /* Red color */
-        cursor: pointer; /* Change cursor to pointer on hover */
-    }
-
+    color: #dc3545; /* Red color */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
 </style>
 <h2>Reservation List</h2>
 
@@ -59,10 +58,11 @@
                             <div>
                                 <span>@reservation.Room.RoomName</span><br />
                                 <span>@reservation.DateTime.ToString("HH:mm")</span><br />
+                                <div>
                                 <form method="post" asp-page-handler="Delete" asp-route-id="@reservation.Id" class="form-group">
                                     <button type="submit" class="btn btn-sm float-left ml-1">❌</button>
                                 </form>
-
+                                </div>
                             </div>
                         }
                     </td>
